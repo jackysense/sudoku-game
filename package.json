@@ -1,0 +1,23 @@
+{
+  "name": "myopencode",
+  "version": "1.0.0",
+  "description": "A text-based Sudoku puzzle game with multiple difficulty levels.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackysense/sudoku-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackysense/sudoku-game/issues"
+  },
+  "homepage": "https://github.com/jackysense/sudoku-game#readme",
+  "dependencies": {
+    "vercel": "^50.13.2"
+  }
+}
