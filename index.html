@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku - 数独游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧩</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部栏 -->
+        <header class="header">
+            <div class="title">🧩 数独</div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">难度</span>
+                    <select id="difficulty" class="difficulty-select">
+                        <option value="easy">简单</option>
+                        <option value="medium" selected>中等</option>
+                        <option value="hard">困难</option>
+                        <option value="expert">专家</option>
+                    </select>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">⏱️</span>
+                    <span id="timer" class="timer">00:00</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">❌</span>
+                    <span id="errors" class="errors">0</span>
+                    <span class="stat-label">/ 3</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 坐标显示 -->
+        <div id="coordinates" class="coordinates">A1</div>
+
+        <!-- 数独棋盘 -->
+        <div class="board-container">
+            <div class="row-labels">
+                <span>A</span>
+                <span>B</span>
+                <span>C</span>
+                <span>D</span>
+                <span>E</span>
+                <span>F</span>
+                <span>G</span>
+                <span>H</span>
+                <span>I</span>
+            </div>
+            <div class="col-labels">
+                <span>1</span><span>2</span><span>3</span>
+                <span>4</span><span>5</span><span>6</span>
+                <span>7</span><span>8</span><span>9</span>
+            </div>
+            <div id="board" class="board"></div>
+        </div>
+
+        <!-- 数字计数 -->
+        <div id="number-counts" class="number-counts"></div>
+
+        <!-- 控制按钮 -->
+        <div class="controls">
+            <button id="undo-btn" class="control-btn" title="撤销">↩️ 撤销</button>
+            <button id="erase-btn" class="control-btn" title="擦除">🗑️ 擦除</button>
+            <button id="note-btn" class="control-btn" title="备注">📝 备注</button>
+            <button id="hint-btn" class="control-btn" title="提示">💡 提示</button>
+            <button id="new-game-btn" class="control-btn primary" title="新游戏">🎮 新游戏</button>
+        </div>
+
+        <!-- 数字输入键 -->
+        <div id="number-pad" class="number-pad">
+            <button class="num-btn" data-num="1">1</button>
+            <button class="num-btn" data-num="2">2</button>
+            <button class="num-btn" data-num="3">3</button>
+            <button class="num-btn" data-num="4">4</button>
+            <button class="num-btn" data-num="5">5</button>
+            <button class="num-btn" data-num="6">6</button>
+            <button class="num-btn" data-num="7">7</button>
+            <button class="num-btn" data-num="8">8</button>
+            <button class="num-btn" data-num="9">9</button>
+        </div>
+
+        <!-- 胜利弹窗 -->
+        <div id="win-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>🎉 恭喜!</h2>
+                <p>你成功解开了数独!</p>
+                <p>用时: <span id="final-time">00:00</span></p>
+                <button id="play-again-btn" class="primary-btn">再局</button>
+玩一            </div>
+        </div>
+
+        <!-- 游戏结束弹窗 -->
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>😢 游戏结束</h2>
+                <p>错误次数已达上限!</p>
+                <button id="try-again-btn" class="primary-btn">重新尝试</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
