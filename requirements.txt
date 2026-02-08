@@ -1,0 +1,5 @@
+# Sudoku Game Dependencies
+# This game requires only Python standard library
+# No external dependencies needed!
+
+# Python 3.6+
